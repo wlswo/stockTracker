@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="Stock Tracker">
+    <meta property="og:description" content="Descriptions">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ url_for('static', path='/icon/thumbnail.png') }}">
+
+    <title>Stock</title>
+    <link rel="icon" href="{{ url_for('static', path='/icon/icon.png') }}">
+    <link href="{{ url_for('static', path='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+
+    <h2>📰 뉴스</h2>
+    {% if news %}
+        <ul class="news-list">
+        {% for article in news %}
+            <li>
+                <strong><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></strong><br>
+                <img src="{{ article.banner_image }}" alt="뉴스 이미지" width="200"><br>
+                <small>출처: {{ article.source }} | 날짜: {{ article.time_published }}</small><br>
+                <p>{{ article.summary }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>📢 뉴스 데이터가 없습니다.</p>
+    {% endif %}
+
+    <hr>
+
+    <h2>📈 상승/하락 TOP 20</h2>
+    {% if top20_gainers_losers %}
+        <h3>🚀 상승 종목</h3>
+        <table border="1">
+            <tr>
+                <th>종목</th>
+                <th>가격</th>
+                <th>변동률</th>
+            </tr>
+            {% for stock in top20_gainers_losers[0].stocks %}
+            <tr>
+                <td>{{ stock.ticker }}</td>
+                <td>{{ stock.price }}</td>
+                <td class="change-cell">{{ stock.change_percentage }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>📉 하락 종목</h3>
+        <table border="1">
+            <tr>
+                <th>종목</th>
+                <th>가격</th>
+                <th>변동률</th>
+            </tr>
+            {% for stock in top20_gainers_losers[1].stocks %}
+            <tr>
+                <td>{{ stock.ticker }}</td>
+                <td>{{ stock.price }}</td>
+                <td class="change-cell">{{ stock.change_percentage }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>📉 상승/하락 데이터가 없습니다.</p>
+    {% endif %}
+
+    <!-- JavaScript 파일 로드 -->
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>
