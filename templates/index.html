@@ -65,9 +65,8 @@
 
 <hr>
 
-<h2>📈 상승/하락 TOP 20</h2>
-{% if top20_gainers_losers %}
-    <h3>🚀 상승 종목</h3>
+<h3>🚀 상승 종목</h3>
+<div class="container-gainers">
     <table border="1">
         <tr>
             <th>종목</th>
@@ -75,15 +74,36 @@
             <th>변동률</th>
         </tr>
         {% for stock in top20_gainers_losers[0].stocks %}
-            <tr>
-                <td>{{ stock.ticker }}</td>
-                <td>{{ stock.price }}</td>
-                <td class="change-cell">{{ stock.change_percentage }}</td>
-            </tr>
+            <div class="stock">
+                <div class="stock-title">
+          <span>
+            <svg width="20" fill="currentColor" height="20" viewBox="0 0 1792 1792">
+              <!-- SVG 내용 -->
+            </svg>
+          </span>
+                    <p class="stock-title-text">
+                        {{ stock.ticker }}
+                    </p>
+                    <p class="stock-percent">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" fill="currentColor" height="20"
+                             width="20">
+                            <!-- SVG 내용 -->
+                        </svg>
+                        {{ stock.change_percentage.replace('%', '') | float | int }}%
+                    </p>
+                </div>
+                <div class="stock-data">
+                    <p>
+                        {{ price }}
+                    </p>
+                </div>
+            </div>
         {% endfor %}
     </table>
+</div>
 
-    <h3>📉 하락 종목</h3>
+<h3>📉 하락 종목</h3>
+<div class="container-losers">
     <table border="1">
         <tr>
             <th>종목</th>
@@ -91,16 +111,35 @@
             <th>변동률</th>
         </tr>
         {% for stock in top20_gainers_losers[1].stocks %}
-            <tr>
-                <td>{{ stock.ticker }}</td>
-                <td>{{ stock.price }}</td>
-                <td class="change-cell">{{ stock.change_percentage }}</td>
-            </tr>
+            <div class="stock">
+                <div class="stock-title">
+          <span>
+            <svg width="20" fill="currentColor" height="20" viewBox="0 0 1792 1792">
+              <!-- SVG 내용 -->
+            </svg>
+          </span>
+                    <p class="stock-title-text">
+                        {{ stock.ticker }}
+                    </p>
+                    <p class="stock-percent">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" fill="currentColor" height="20"
+                             width="20">
+                            <!-- SVG 내용 -->
+                        </svg>
+                        {{ stock.change_percentage.replace('%', '') | float | int }}%
+                    </p>
+                </div>
+                <div class="stock-data">
+                    <p>
+                        {{ price }}
+                    </p>
+                </div>
+            </div>
         {% endfor %}
     </table>
-{% else %}
-    <p>📉 상승/하락 데이터가 없습니다.</p>
-{% endif %}
+</div>
+
+
 <script src="{{ url_for('static', path='script.js') }}"></script>
 </body>
 </html>

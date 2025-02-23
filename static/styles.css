@@ -56,7 +56,8 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     padding: 32px;
     border-radius: 10px;
-    background: #212121;
+    /*background: #212121;*/
+    background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
     border: 2px solid #313131;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
     overflow: visible; /* hidden에서 visible로 변경 */
@@ -201,18 +202,73 @@ body {
     transform: translateX(1em);
 }
 
-/* 테이블 스타일 개선 */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1em;
+/* From Uiverse.io by Yaya12085 */
+.container-gainers,
+.container-losers {
+    width: 80%;            /* 필요에 따라 조정 */
+    margin: 20px auto;     /* 수평 중앙 정렬 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-th, td {
-    padding: 8px;
-    text-align: center;
+
+.stock {
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-width: 320px;
+  border-radius: 20px;
 }
 
-th {
-    background-color: #f2f2f2;
+.stock-title {
+  display: flex;
+  align-items: center;
+}
+
+.stock-title span {
+  position: relative;
+  padding: 0.5rem;
+  background-color: #10B981;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+}
+
+.stock-title span svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  height: 1rem;
+}
+
+.stock-title-text {
+  margin-left: 0.5rem;
+  color: #374151;
+  font-size: 18px;
+}
+
+.stock-percent {
+  margin-left: 0.5rem;
+  color: #02972f;
+  font-weight: 600;
+  display: flex;
+}
+
+.stock-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stock-data p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #1F2937;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  text-align: left;
 }
