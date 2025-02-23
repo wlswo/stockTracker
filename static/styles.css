@@ -1,10 +1,35 @@
+/* From Uiverse.io by jeremyssocial */
 body {
-    width: 100%;
-    height: 100%;
-    /* Add your background pattern here */
-    background-image: repeating-radial-gradient(#0c0a0a 80%, #2f312f 90%, #3f4549 90%);
-    background-size: 65px 65px;
+  /* Basic dimensions and centering */
+  width: 100%;
+  height: 100%;
+  /* Dark mode colors and gradient */
+  background: #121212; /* Fallback for browsers that don't support gradients */
+  background: linear-gradient(
+    135deg,
+    #121212 25%,
+    #1a1a1a 25%,
+    #1a1a1a 50%,
+    #121212 50%,
+    #121212 75%,
+    #1a1a1a 75%,
+    #1a1a1a
+  );
+  background-size: 20px 20px;
+
+  /* Animation */
+  animation: move 7s linear infinite;
 }
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
 
 .news-text {
     text-align: center;
@@ -92,8 +117,6 @@ body {
 
 .content .btn:hover {
     outline: 2px solid #e8e8e8;
-    background: transparent;
-    color: #e8e8e8;
 }
 
 .content .btn:active {
