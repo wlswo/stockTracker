@@ -1,33 +1,33 @@
 /* From Uiverse.io by jeremyssocial */
 body {
-  /* Basic dimensions and centering */
-  width: 100%;
-  height: 100%;
-  /* Dark mode colors and gradient */
-  background: #121212; /* Fallback for browsers that don't support gradients */
-  background: linear-gradient(
-    135deg,
-    #121212 25%,
-    #1a1a1a 25%,
-    #1a1a1a 50%,
-    #121212 50%,
-    #121212 75%,
-    #1a1a1a 75%,
-    #1a1a1a
-  );
-  background-size: 20px 20px;
+    /* Basic dimensions and centering */
+    width: 100%;
+    height: 100%;
+    /* Dark mode colors and gradient */
+    background: #121212; /* Fallback for browsers that don't support gradients */
+    background: linear-gradient(
+            135deg,
+            #121212 25%,
+            #1a1a1a 25%,
+            #1a1a1a 50%,
+            #121212 50%,
+            #121212 75%,
+            #1a1a1a 75%,
+            #1a1a1a
+    );
+    background-size: 20px 20px;
 
-  /* Animation */
-  animation: move 7s linear infinite;
+    /* Animation */
+    animation: move 7s linear infinite;
 }
 
 @keyframes move {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 40px 40px;
-  }
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40px 40px;
+    }
 }
 
 
@@ -205,70 +205,72 @@ body {
 /* From Uiverse.io by Yaya12085 */
 .container-gainers,
 .container-losers {
-    width: 80%;            /* 필요에 따라 조정 */
-    margin: 20px auto;     /* 수평 중앙 정렬 */
+    width: 80%; /* 필요에 따라 조정 */
+    margin: 20px auto; /* 수평 중앙 정렬 */
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    justify-content: center;
 }
 
 
 .stock {
-  padding: 1rem;
-  background-color: #fff;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  max-width: 320px;
-  border-radius: 20px;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    max-width: 320px;
+    border-radius: 20px;
 }
 
 .stock-title {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .stock-title span {
-  position: relative;
-  padding: 0.5rem;
-  background-color: #10B981;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 9999px;
+    position: relative;
+    padding: 0.5rem;
+    background-color: #10B981;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
 }
 
 .stock-title span svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #ffffff;
-  height: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    height: 1rem;
 }
 
 .stock-title-text {
-  margin-left: 0.5rem;
-  color: #374151;
-  font-size: 18px;
+    margin-left: 0.5rem;
+    color: #374151;
+    font-size: 18px;
 }
 
 .stock-percent {
-  margin-left: 0.5rem;
-  color: #02972f;
-  font-weight: 600;
-  display: flex;
+    margin-left: 0.5rem;
+    color: #02972f;
+    font-weight: 600;
+    display: flex;
 }
 
 .stock-data {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .stock-data p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  color: #1F2937;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  font-weight: 700;
-  text-align: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #1F2937;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    text-align: left;
 }
