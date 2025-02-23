@@ -1,0 +1,599 @@
+{
+    "items": "45",
+    "sentiment_score_definition": "x <= -0.35: Bearish; -0.35 < x <= -0.15: Somewhat-Bearish; -0.15 < x < 0.15: Neutral; 0.15 <= x < 0.35: Somewhat_Bullish; x >= 0.35: Bullish",
+    "relevance_score_definition": "0 < x <= 1, with a higher score indicating higher relevance.",
+    "feed": [
+        {
+            "title": "Alibaba Jumps Post Q3 Earnings: ETFs to Buy",
+            "url": "https://www.zacks.com/stock/news/2419669/alibaba-jumps-post-q3-earnings-etfs-to-buy",
+            "time_published": "20250221T160000",
+            "authors": [
+                "Sweta Killa"
+            ],
+            "summary": "Alibaba records its fastest pace of revenue growth in more than a year, spreading cheer among investors.",
+            "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/0c/1115.jpg",
+            "source": "Zacks Commentary",
+            "category_within_source": "n/a",
+            "source_domain": "www.zacks.com",
+            "topics": [
+                {
+                    "topic": "Economy - Fiscal",
+                    "relevance_score": "0.158519"
+                },
+                {
+                    "topic": "Financial Markets",
+                    "relevance_score": "0.999992"
+                },
+                {
+                    "topic": "Earnings",
+                    "relevance_score": "0.917436"
+                },
+                {
+                    "topic": "Technology",
+                    "relevance_score": "0.5"
+                },
+                {
+                    "topic": "Finance",
+                    "relevance_score": "0.5"
+                }
+            ],
+            "overall_sentiment_score": 0.214942,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "ticker_sentiment": [
+                {
+                    "ticker": "BABA",
+                    "relevance_score": "0.483229",
+                    "ticker_sentiment_score": "0.314862",
+                    "ticker_sentiment_label": "Somewhat-Bullish"
+                },
+                {
+                    "ticker": "AAPL",
+                    "relevance_score": "0.093836",
+                    "ticker_sentiment_score": "-0.004258",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "CIH",
+                    "relevance_score": "0.046999",
+                    "ticker_sentiment_score": "0.151546",
+                    "ticker_sentiment_label": "Somewhat-Bullish"
+                },
+                {
+                    "ticker": "IVZ",
+                    "relevance_score": "0.140348",
+                    "ticker_sentiment_score": "0.116988",
+                    "ticker_sentiment_label": "Neutral"
+                }
+            ]
+        },
+        {
+            "title": "A Closer Look at Arista Networks's Options Market Dynamics - Arista Networks  ( NYSE:ANET ) ",
+            "url": "https://www.benzinga.com/insights/options/25/02/43881791/a-closer-look-at-arista-networkss-options-market-dynamics",
+            "time_published": "20250221T144552",
+            "authors": [
+                "Benzinga Insights"
+            ],
+            "summary": "High-rolling investors have positioned themselves bullish on Arista Networks ANET, and it's important for retail traders to take note. \\This activity came to our attention today through Benzinga's tracking of publicly available options data.",
+            "banner_image": "https://www.benzinga.com/files/images/story/2025/1740149149_0.png",
+            "source": "Benzinga",
+            "category_within_source": "Markets",
+            "source_domain": "www.benzinga.com",
+            "topics": [
+                {
+                    "topic": "Financial Markets",
+                    "relevance_score": "0.990999"
+                },
+                {
+                    "topic": "Earnings",
+                    "relevance_score": "0.158519"
+                },
+                {
+                    "topic": "Technology",
+                    "relevance_score": "0.5"
+                },
+                {
+                    "topic": "Finance",
+                    "relevance_score": "0.5"
+                }
+            ],
+            "overall_sentiment_score": 0.164113,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "ticker_sentiment": [
+                {
+                    "ticker": "MSFT",
+                    "relevance_score": "0.063425",
+                    "ticker_sentiment_score": "0.057018",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "META",
+                    "relevance_score": "0.063425",
+                    "ticker_sentiment_score": "0.057018",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "ANET",
+                    "relevance_score": "0.767379",
+                    "ticker_sentiment_score": "0.27534",
+                    "ticker_sentiment_label": "Somewhat-Bullish"
+                },
+                {
+                    "ticker": "BCS",
+                    "relevance_score": "0.063425",
+                    "ticker_sentiment_score": "0.026046",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "C",
+                    "relevance_score": "0.063425",
+                    "ticker_sentiment_score": "0.026046",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "WFC",
+                    "relevance_score": "0.063425",
+                    "ticker_sentiment_score": "0.026046",
+                    "ticker_sentiment_label": "Neutral"
+                }
+            ]
+        },
+        {
+            "title": "Top Analyst Wars Of Looming Stock Market Correction As S&P 500 Records Biggest Single Day Loss Since Dec. 18: 'We Could See It Trigger A Larger Sell Off' - NVIDIA  ( NASDAQ:NVDA ) , Apple  ( NASDAQ:AAPL ) ",
+            "url": "https://www.benzinga.com/markets/equities/25/02/43900064/top-analyst-warns-of-looming-stock-market-correction-as-sp-500-records-biggest-single-day-loss-s",
+            "time_published": "20250222T062214",
+            "authors": [
+                "Ananya Gairola"
+            ],
+            "summary": "Goldman Sachs expert Scott Rubner has cautioned that Wall Street stocks may face a downturn, citing growing instability in the options market as a key factor behind his prediction.",
+            "banner_image": "https://cdn.benzinga.com/files/images/story/2025/02/22/Strategist-Reveals-How-To-Maximize-Profi.jpeg?width=1200&height=800&fit=crop",
+            "source": "Benzinga",
+            "category_within_source": "Markets",
+            "source_domain": "www.benzinga.com",
+            "topics": [
+                {
+                    "topic": "Financial Markets",
+                    "relevance_score": "0.998663"
+                },
+                {
+                    "topic": "Manufacturing",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Technology",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Finance",
+                    "relevance_score": "0.333333"
+                }
+            ],
+            "overall_sentiment_score": -0.149548,
+            "overall_sentiment_label": "Neutral",
+            "ticker_sentiment": [
+                {
+                    "ticker": "NVDA",
+                    "relevance_score": "0.163354",
+                    "ticker_sentiment_score": "-0.082398",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "AAPL",
+                    "relevance_score": "0.319933",
+                    "ticker_sentiment_score": "0.011713",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "BAC",
+                    "relevance_score": "0.082111",
+                    "ticker_sentiment_score": "0.027764",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "GS",
+                    "relevance_score": "0.163354",
+                    "ticker_sentiment_score": "-0.072784",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "IVZ",
+                    "relevance_score": "0.082111",
+                    "ticker_sentiment_score": "-0.052532",
+                    "ticker_sentiment_label": "Neutral"
+                }
+            ]
+        },
+        {
+            "title": "Is Bitcoin Set for a Big Rally? $100K Breakout, Coinbase Win Say Yes",
+            "url": "https://www.zacks.com/commentary/2419622/is-bitcoin-set-for-a-big-rally-100k-breakout-coinbase-win-say-yes",
+            "time_published": "20250221T174400",
+            "authors": [
+                "Andrew Rocco"
+            ],
+            "summary": "Several bullish factors signal a major Bitcoin rally, including the \"Livermore Round # Rule??? and the dismissal of the Coinbase SEC case. Stock Strategist Andrew Rocco explains.",
+            "banner_image": "https://staticx-tuner.zacks.com/images/articles/main/2e/87002.jpg",
+            "source": "Zacks Commentary",
+            "category_within_source": "n/a",
+            "source_domain": "www.zacks.com",
+            "topics": [
+                {
+                    "topic": "Life Sciences",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Financial Markets",
+                    "relevance_score": "0.992549"
+                },
+                {
+                    "topic": "Technology",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Finance",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Blockchain",
+                    "relevance_score": "0.158519"
+                }
+            ],
+            "overall_sentiment_score": 0.266297,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "ticker_sentiment": [
+                {
+                    "ticker": "RUM",
+                    "relevance_score": "0.150592",
+                    "ticker_sentiment_score": "0.044322",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "STRK",
+                    "relevance_score": "0.075635",
+                    "ticker_sentiment_score": "0.035306",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "COIN",
+                    "relevance_score": "0.295867",
+                    "ticker_sentiment_score": "0.464855",
+                    "ticker_sentiment_label": "Bullish"
+                },
+                {
+                    "ticker": "SMLR",
+                    "relevance_score": "0.075635",
+                    "ticker_sentiment_score": "0.035306",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "CRYPTO:BTC",
+                    "relevance_score": "0.782863",
+                    "ticker_sentiment_score": "0.517176",
+                    "ticker_sentiment_label": "Bullish"
+                }
+            ]
+        },
+        {
+            "title": "IMAX CEO expects $1.2 billion in box office receipts this year, the best in the company's history",
+            "url": "https://www.cnbc.com/2025/02/21/imax-ceo-2025-box-office-receipt-expectations.html",
+            "time_published": "20250221T164231",
+            "authors": [],
+            "summary": "Aiding IMAX's lofty box office goals is the Chinese title \"Ne Zha 2,\" which has already garnered $1.6 billion globally, including IMAX screenings.",
+            "banner_image": null,
+            "source": "CNBC",
+            "category_within_source": "Business",
+            "source_domain": "www.cnbc.com",
+            "topics": [
+                {
+                    "topic": "Life Sciences",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Financial Markets",
+                    "relevance_score": "0.744043"
+                },
+                {
+                    "topic": "Technology",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Finance",
+                    "relevance_score": "0.333333"
+                }
+            ],
+            "overall_sentiment_score": 0.021472,
+            "overall_sentiment_label": "Neutral",
+            "ticker_sentiment": [
+                {
+                    "ticker": "IMAX",
+                    "relevance_score": "0.320279",
+                    "ticker_sentiment_score": "0.089343",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "CCZ",
+                    "relevance_score": "0.109455",
+                    "ticker_sentiment_score": "0.0",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "BAC",
+                    "relevance_score": "0.109455",
+                    "ticker_sentiment_score": "-0.383092",
+                    "ticker_sentiment_label": "Bearish"
+                },
+                {
+                    "ticker": "WFC",
+                    "relevance_score": "0.109455",
+                    "ticker_sentiment_score": "0.0",
+                    "ticker_sentiment_label": "Neutral"
+                }
+            ]
+        },
+        {
+            "title": "If I Could Only Buy 1 Warren Buffett Artificial Intelligence  ( AI )  Stock, This Would Be It  ( Hint: It's Not Apple ) ",
+            "url": "https://www.fool.com/investing/2025/02/21/if-i-could-only-buy-1-warren-buffett-ai-stock/",
+            "time_published": "20250221T144700",
+            "authors": [
+                "Adam Spatacco"
+            ],
+            "summary": "Apple is Berkshire Hathaway's largest position, but I see a different artificial intelligence (AI) stock as the better opportunity.",
+            "banner_image": "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F808116%2Fbuffett8-tmf-1.jpg&op=resize&w=700",
+            "source": "Motley Fool",
+            "category_within_source": "n/a",
+            "source_domain": "www.fool.com",
+            "topics": [
+                {
+                    "topic": "Economy - Monetary",
+                    "relevance_score": "0.158519"
+                },
+                {
+                    "topic": "Retail & Wholesale",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Financial Markets",
+                    "relevance_score": "0.413559"
+                },
+                {
+                    "topic": "Earnings",
+                    "relevance_score": "0.77141"
+                },
+                {
+                    "topic": "Technology",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Finance",
+                    "relevance_score": "0.333333"
+                }
+            ],
+            "overall_sentiment_score": 0.217278,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "ticker_sentiment": [
+                {
+                    "ticker": "MSFT",
+                    "relevance_score": "0.100099",
+                    "ticker_sentiment_score": "0.104178",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "AAPL",
+                    "relevance_score": "0.198628",
+                    "ticker_sentiment_score": "0.249344",
+                    "ticker_sentiment_label": "Somewhat-Bullish"
+                },
+                {
+                    "ticker": "AMZN",
+                    "relevance_score": "0.685724",
+                    "ticker_sentiment_score": "0.306497",
+                    "ticker_sentiment_label": "Somewhat-Bullish"
+                },
+                {
+                    "ticker": "BRK-A",
+                    "relevance_score": "0.050148",
+                    "ticker_sentiment_score": "0.056482",
+                    "ticker_sentiment_label": "Neutral"
+                }
+            ]
+        },
+        {
+            "title": "Institutional Investors Load Up On Technology And Financial Stocks In Q4 While Reducing Positions In Healthcare Sector Amid Political Uncertainty - Bank of America  ( NYSE:BAC ) , Amazon.com  ( NASDAQ:AMZN ) ",
+            "url": "https://www.benzinga.com/markets/equities/25/02/43878703/institutional-investors-load-up-on-technology-and-financial-stocks-in-q4-while-reducing-position",
+            "time_published": "20250221T124536",
+            "authors": [
+                "Rishabh Mishra"
+            ],
+            "summary": "Institutional investors were bullish on technology and financials during the fourth quarter of 2024 as these sectors saw major inflows, according to 13F filings with the Securities Exchange Commission ( SEC ) . Investors were seen pulling back from the healthcare sector.",
+            "banner_image": "https://cdn.benzinga.com/files/images/story/2025/02/21/Market-Manipulation-and-Rising-Costs.jpeg?width=1200&height=800&fit=crop",
+            "source": "Benzinga",
+            "category_within_source": "Markets",
+            "source_domain": "www.benzinga.com",
+            "topics": [
+                {
+                    "topic": "Economy - Monetary",
+                    "relevance_score": "0.158519"
+                },
+                {
+                    "topic": "Financial Markets",
+                    "relevance_score": "0.938793"
+                },
+                {
+                    "topic": "Manufacturing",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Technology",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Finance",
+                    "relevance_score": "0.333333"
+                }
+            ],
+            "overall_sentiment_score": 0.287657,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "ticker_sentiment": [
+                {
+                    "ticker": "MSFT",
+                    "relevance_score": "0.134214",
+                    "ticker_sentiment_score": "0.20871",
+                    "ticker_sentiment_label": "Somewhat-Bullish"
+                },
+                {
+                    "ticker": "NVDA",
+                    "relevance_score": "0.134214",
+                    "ticker_sentiment_score": "0.20871",
+                    "ticker_sentiment_label": "Somewhat-Bullish"
+                },
+                {
+                    "ticker": "PDD",
+                    "relevance_score": "0.134214",
+                    "ticker_sentiment_score": "0.20871",
+                    "ticker_sentiment_label": "Somewhat-Bullish"
+                },
+                {
+                    "ticker": "TSLA",
+                    "relevance_score": "0.134214",
+                    "ticker_sentiment_score": "0.20871",
+                    "ticker_sentiment_label": "Somewhat-Bullish"
+                },
+                {
+                    "ticker": "BAC",
+                    "relevance_score": "0.134214",
+                    "ticker_sentiment_score": "0.073942",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "BRK-A",
+                    "relevance_score": "0.067347",
+                    "ticker_sentiment_score": "0.060519",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "STZ",
+                    "relevance_score": "0.134214",
+                    "ticker_sentiment_score": "0.073942",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "LPLA",
+                    "relevance_score": "0.067347",
+                    "ticker_sentiment_score": "0.067134",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "PLTR",
+                    "relevance_score": "0.134214",
+                    "ticker_sentiment_score": "0.20871",
+                    "ticker_sentiment_label": "Somewhat-Bullish"
+                }
+            ]
+        },
+        {
+            "title": "Hang Seng Index left untouched, tweaks made to China enterprises, tech indices",
+            "url": "https://www.scmp.com/business/markets/article/3299693/hang-seng-index-left-untouched-tweaks-made-tech-china-enterprises-indices",
+            "time_published": "20250221T115709",
+            "authors": [
+                "Enoch Yiu"
+            ],
+            "summary": "Tencent Music and Horizon Robotics added to Hang Seng Tech Index, while ZTO Express and BeiGene added to Hang Seng China Enterprises Index.",
+            "banner_image": "https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1024,format=auto/sites/default/files/d8/images/canvas/2025/02/21/457b28da-a3f9-4e35-8ae7-89a314a08341_397858b7.jpg",
+            "source": "South China Morning Post",
+            "category_within_source": "Business",
+            "source_domain": "www.scmp.com",
+            "topics": [
+                {
+                    "topic": "Financial Markets",
+                    "relevance_score": "0.161647"
+                },
+                {
+                    "topic": "Energy & Transportation",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Technology",
+                    "relevance_score": "0.333333"
+                },
+                {
+                    "topic": "Finance",
+                    "relevance_score": "0.333333"
+                }
+            ],
+            "overall_sentiment_score": -0.040495,
+            "overall_sentiment_label": "Neutral",
+            "ticker_sentiment": [
+                {
+                    "ticker": "BABA",
+                    "relevance_score": "0.072435",
+                    "ticker_sentiment_score": "-0.067403",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "GOOG",
+                    "relevance_score": "0.072435",
+                    "ticker_sentiment_score": "-0.016295",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "KSHTY",
+                    "relevance_score": "0.072435",
+                    "ticker_sentiment_score": "-0.061359",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "NWWDF",
+                    "relevance_score": "0.072435",
+                    "ticker_sentiment_score": "-0.061359",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "ZTO",
+                    "relevance_score": "0.144275",
+                    "ticker_sentiment_score": "-0.12781",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "ONC",
+                    "relevance_score": "0.144275",
+                    "ticker_sentiment_score": "-0.12781",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "LNNGF",
+                    "relevance_score": "0.144275",
+                    "ticker_sentiment_score": "-0.12781",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "HSBC",
+                    "relevance_score": "0.072435",
+                    "ticker_sentiment_score": "-0.067403",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "TME",
+                    "relevance_score": "0.072435",
+                    "ticker_sentiment_score": "0.058807",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "SBMFF",
+                    "relevance_score": "0.144275",
+                    "ticker_sentiment_score": "-0.12781",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "TCTZF",
+                    "relevance_score": "0.214937",
+                    "ticker_sentiment_score": "0.010141",
+                    "ticker_sentiment_label": "Neutral"
+                },
+                {
+                    "ticker": "CSHEF",
+                    "relevance_score": "0.072435",
+                    "ticker_sentiment_score": "-0.172425",
+                    "ticker_sentiment_label": "Somewhat-Bearish"
+                }
+            ]
+        }
+    ]
+}
