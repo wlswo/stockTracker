@@ -1,30 +1,181 @@
-/* 뉴스 기사 목록 스타일 */
-.news-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+body {
+    width: 100%;
+    height: 100%;
+    /* Add your background pattern here */
+    background-image: repeating-radial-gradient(#0c0a0a 80%, #2f312f 90%, #3f4549 90%);
+    background-size: 65px 65px;
 }
 
-.news-list li {
-    border: 1px solid #ddd;
-    margin-bottom: 1em;
+.news-text {
+    text-align: center;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #dbdddd 0%, #abaaae 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 100px;
+    font-weight: 700;
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+/* 기존 카드 및 콘텐츠 스타일 */
+.card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    height: 290px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 32px;
+    border-radius: 10px;
+    background: #212121;
+    border: 2px solid #313131;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: visible; /* hidden에서 visible로 변경 */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    color: #e8e8e8;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    width: 100%;
+    position: relative;
+}
+
+/* 제목: 최대 3줄 이상이면 말줄임, 글자 단위 줄바꿈 */
+.content .heading {
+    font-weight: 540;
+    font-size: 20px;
+    line-height: 1.1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
+    word-break: break-all;
+}
+
+/* 본문: 3줄 넘으면 말줄임 처리, 글자 단위 줄바꿈 */
+.content .para {
+    line-height: 1.1;
+    font-size: 11px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+    margin-bottom: 30px;
+}
+
+.content .btn {
+    color: #e8e8e8;
+    text-decoration: none;
     padding: 10px;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    background: #0974f1;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.news-list li:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+.card:hover {
+    box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
+    border-color: #0974f1;
 }
 
-/* 히트맵 스타일 - 상승은 초록, 하락은 빨강 */
-.heatmap-positive {
-    background-color: rgba(0, 255, 0, 0.2);
+.content .btn:hover {
+    outline: 2px solid #e8e8e8;
+    background: transparent;
+    color: #e8e8e8;
 }
 
-.heatmap-negative {
-    background-color: rgba(255, 0, 0, 0.2);
+.content .btn:active {
+    box-shadow: none;
+}
+
+/* 체크박스 숨김 처리 */
+.ticker-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* ticker-container: 카드 상단 우측에 고정 */
+.ticker-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 101;
+}
+
+/* 툴팁 스타일 */
+.ticker-tooltip {
+    display: none;
+    position: absolute;
+    bottom: 120%; /* 스위치 위쪽에 표시 */
+    right: 0;
+    background: #fff;
+    color: #000;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    white-space: normal;
+    text-align: left;
+    z-index: 100;
+}
+
+/* 체크박스 선택 시, 같은 부모 내의 툴팁 표시 */
+.ticker-container input:checked ~ .ticker-tooltip {
+    display: block;
+}
+
+/* 작은 스위치 스타일 */
+.switch {
+    font-size: 12px; /* 기본 폰트 크기를 축소 */
+    position: relative;
+    display: inline-block;
+    width: 2.5em; /* 기존 3.5em에서 축소 */
+    height: 1.5em; /* 기존 2em에서 축소 */
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    border: 2px solid #414141;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1em; /* 슬라이더 내부 원의 높이 축소 */
+    width: 1em; /* 슬라이더 내부 원의 너비 축소 */
+    left: 0.1em;
+    bottom: 0.1em;
+    background-color: white;
+    border-radius: inherit;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+/* 체크 시 슬라이더에 효과 적용 */
+.ticker-checkbox:checked + .ticker-switch .slider {
+    box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
+    border: 2px solid #0974f1;
+}
+
+.ticker-checkbox:checked + .ticker-switch .slider:before {
+    transform: translateX(1em);
 }
 
 /* 테이블 스타일 개선 */

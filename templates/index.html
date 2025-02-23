@@ -6,69 +6,101 @@
     <meta property="og:description" content="Descriptions">
     <meta property="og:type" content="website">
     <meta property="og:image" content="{{ url_for('static', path='/icon/thumbnail.png') }}">
-
     <title>Stock</title>
     <link rel="icon" href="{{ url_for('static', path='/icon/icon.png') }}">
     <link href="{{ url_for('static', path='styles.css') }}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/plugin/relativeTime.min.js"></script>
+    <script>
+        dayjs.extend(window.dayjs_plugin_relativeTime);
+    </script>
 </head>
 <body>
-
-    <h2>📰 뉴스</h2>
+<div class="news-text">
+    <span class="gradient-text">Today`s News</span>
+</div>
+<!-- 전체 컨테이너: 화면 중앙 정렬 -->
+<div class="min-h-screen flex flex-col justify-center items-center">
     {% if news %}
-        <ul class="news-list">
-        {% for article in news %}
-            <li>
-                <strong><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></strong><br>
-                <img src="{{ article.banner_image }}" alt="뉴스 이미지" width="200"><br>
-                <small>출처: {{ article.source }} | 날짜: {{ article.time_published }}</small><br>
-                <p>{{ article.summary }}</p>
-            </li>
-        {% endfor %}
-        </ul>
+        <div class="w-full flex flex-wrap justify-center gap-10">
+            {% for article in news %}
+                <div class="card">
+                    <!-- 카드 상단 우측에 위치하는 ticker 스위치와 툴팁 컨테이너 -->
+                    <div class="ticker-container">
+                        <input type="checkbox" id="ticker-switch-{{ loop.index }}" class="ticker-checkbox">
+                        <label class="switch ticker-switch" for="ticker-switch-{{ loop.index }}">
+                            <span class="slider"></span>
+                        </label>
+                        <div class="ticker-tooltip">
+                            {% for ts in article.ticker_sentiment %}
+                                <div>{{ ts.ticker }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p class="heading">
+                            {{ article.title }}
+                        </p>
+                        <p class="para">
+                            {{ article.summary }}
+                        </p>
+                        <!-- 하단 영역: 버튼 및 시간 정보 -->
+                        <div class="w-full flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <button class="btn" onclick="window.open('{{ article.url }}', '_blank')">Read more
+                                </button>
+                            </div>
+                            <span class="relative-time text-xs text-gray-400"
+                                  data-published="{{ article.time_published }}"></span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     {% else %}
         <p>📢 뉴스 데이터가 없습니다.</p>
     {% endif %}
+</div>
 
-    <hr>
+<hr>
 
-    <h2>📈 상승/하락 TOP 20</h2>
-    {% if top20_gainers_losers %}
-        <h3>🚀 상승 종목</h3>
-        <table border="1">
-            <tr>
-                <th>종목</th>
-                <th>가격</th>
-                <th>변동률</th>
-            </tr>
-            {% for stock in top20_gainers_losers[0].stocks %}
-            <tr>
-                <td>{{ stock.ticker }}</td>
-                <td>{{ stock.price }}</td>
-                <td class="change-cell">{{ stock.change_percentage }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-
-        <h3>📉 하락 종목</h3>
-        <table border="1">
-            <tr>
-                <th>종목</th>
-                <th>가격</th>
-                <th>변동률</th>
-            </tr>
-            {% for stock in top20_gainers_losers[1].stocks %}
+<h2>📈 상승/하락 TOP 20</h2>
+{% if top20_gainers_losers %}
+    <h3>🚀 상승 종목</h3>
+    <table border="1">
+        <tr>
+            <th>종목</th>
+            <th>가격</th>
+            <th>변동률</th>
+        </tr>
+        {% for stock in top20_gainers_losers[0].stocks %}
             <tr>
                 <td>{{ stock.ticker }}</td>
                 <td>{{ stock.price }}</td>
                 <td class="change-cell">{{ stock.change_percentage }}</td>
             </tr>
-            {% endfor %}
-        </table>
-    {% else %}
-        <p>📉 상승/하락 데이터가 없습니다.</p>
-    {% endif %}
+        {% endfor %}
+    </table>
 
-    <!-- JavaScript 파일 로드 -->
-    <script src="{{ url_for('static', path='script.js') }}"></script>
+    <h3>📉 하락 종목</h3>
+    <table border="1">
+        <tr>
+            <th>종목</th>
+            <th>가격</th>
+            <th>변동률</th>
+        </tr>
+        {% for stock in top20_gainers_losers[1].stocks %}
+            <tr>
+                <td>{{ stock.ticker }}</td>
+                <td>{{ stock.price }}</td>
+                <td class="change-cell">{{ stock.change_percentage }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>📉 상승/하락 데이터가 없습니다.</p>
+{% endif %}
+<script src="{{ url_for('static', path='script.js') }}"></script>
 </body>
 </html>
