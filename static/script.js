@@ -38,3 +38,47 @@ function updateRelativeTimes() {
 
 // 페이지 로드 시 단 한 번 실행
 updateRelativeTimes();
+
+// script.js
+
+// 전역 변수에서 값을 가져오거나 기본값을 설정합니다.
+let currentPage = window.currentPage || 1;
+const sort = window.sort || "importance";
+const pageSize = 10;  // 백엔드와 동일하게 설정
+
+function applySort() {
+    const selectedSort = document.getElementById("sort-select").value;
+    // 정렬 기준 변경 시 페이지 1로 새로고침
+    window.location.href = `/news?sort=${selectedSort}&page=1&page_size=${pageSize}`;
+}
+
+async function loadMore() {
+    currentPage++;
+    try {
+        const response = await axios.get('/api/news', {
+            params: {
+                sort: sort,
+                page: currentPage,
+                page_size: pageSize
+            }
+        });
+        const newsList = response.data.news;
+        const container = document.getElementById("news-container");
+        newsList.forEach(article => {
+            const articleElem = document.createElement("article");
+            articleElem.className = "bg-white rounded shadow p-4";
+            articleElem.innerHTML = `
+                <img src="${article.banner_image}" alt="배너 이미지" class="w-full h-48 object-cover">
+                <h3 class="text-lg font-medium mt-2">${article.title}</h3>
+                <p class="text-sm text-gray-600">${article.summary}</p>
+            `;
+            container.appendChild(articleElem);
+        });
+        // 만약 추가 데이터가 없으면 "더 보기" 버튼 숨김 처리
+        if (newsList.length < pageSize) {
+            document.getElementById("load-more-btn").style.display = 'none';
+        }
+    } catch (error) {
+        console.error("데이터 로드 실패:", error);
+    }
+}

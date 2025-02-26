@@ -6,103 +6,102 @@
     <meta property="og:description" content="Descriptions">
     <meta property="og:type" content="website">
     <meta property="og:image" content="{{ url_for('static', path='/icon/thumbnail.png') }}">
-<meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>뉴스 포털</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <title>어제 증시 무엇?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap"
+          rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
     <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
-    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000"
+            data-border-radius="small"></script>
     <link rel="icon" href="{{ url_for('static', path='/icon/icon.png') }}">
     <link href="{{ url_for('static', path='styles.css') }}" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/plugin/relativeTime.min.js"></script>
-    <script>
-        dayjs.extend(window.dayjs_plugin_relativeTime);
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script> dayjs.extend(window.dayjs_plugin_relativeTime); </script>
 </head>
 <body class="bg-gray-50 font-[&#39;Noto_Sans_KR&#39;]">
-    <header class="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div class="max-w-8xl mx-auto">
-            <div class="flex items-center justify-between px-4 py-4">
-                <div class="flex items-center gap-8">
-                    <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="로고" class="h-8"/>
-                    <div class="relative">
-                        <input type="text" placeholder="뉴스 검색" class="w-96 pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-custom"/>
-                        <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+<header class="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <div class="max-w-8xl mx-auto">
+        <div class="flex items-center justify-between px-4 py-4">
+            <div class="flex items-center gap-8">
+                <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="로고" class="h-8"/>
+                <div class="relative">
+                    <input type="text" placeholder="뉴스 검색"
+                           class="w-96 pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-custom"/>
+                    <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
-                <nav class="flex items-center gap-6">
-                    <a href="#" class="text-gray-700 hover:text-custom">홈</a>
-                    <a href="#" class="text-gray-700 hover:text-custom">구독</a>
-                    <a href="#" class="text-gray-700 hover:text-custom">저장됨</a>
+            </div>
+            <nav class="flex items-center gap-6">
+                <a href="#" class="text-gray-700 hover:text-custom">홈</a>
+                <a href="#" class="text-gray-700 hover:text-custom">구독</a>
+                <a href="#" class="text-gray-700 hover:text-custom">저장됨</a>
 
-                <div class="bg-blue-50 rounded-lg p-4 ml-4 max-w-md"><p class="text-sm font-medium text-blue-800 mb-2">미국 증시 AI 요약 (전일)</p><p class="text-sm text-blue-700 mb-1">S&amp;P500 +0.32% 상승으로 마감. 기술주 중심 상승세 지속.</p><p class="text-sm text-blue-600">향후 전망: AI 관련주 모멘텀 지속, 연준 완화적 기조 유지 예상</p></div></nav>
+                <div class="bg-blue-50 rounded-lg p-4 ml-4 max-w-md"><p class="text-sm font-medium text-blue-800 mb-2">
+                    미국 증시 AI 요약 (전일)</p>
+                    <p class="text-sm text-blue-700 mb-1">S&amp;P500 +0.32% 상승으로 마감. 기술주 중심 상승세 지속.</p>
+                    <p class="text-sm text-blue-600">향후 전망: AI 관련주 모멘텀 지속, 연준 완화적 기조 유지 예상</p></div>
+            </nav>
+        </div>
+        <div class="flex items-center gap-6 px-4 py-2 border-t border-gray-100">
+            <div class="flex gap-4">
+                <button class="text-custom font-medium">전체</button>
+                <button class="text-gray-600 hover:text-custom">정치</button>
+                <button class="text-gray-600 hover:text-custom">경제</button>
+                <button class="text-gray-600 hover:text-custom">사회</button>
+                <button class="text-gray-600 hover:text-custom">문화</button>
+                <button class="text-gray-600 hover:text-custom">스포츠</button>
+                <button class="text-gray-600 hover:text-custom">연예</button>
             </div>
-            <div class="flex items-center gap-6 px-4 py-2 border-t border-gray-100">
-                <div class="flex gap-4">
-                    <button class="text-custom font-medium">전체</button>
-                    <button class="text-gray-600 hover:text-custom">정치</button>
-                    <button class="text-gray-600 hover:text-custom">경제</button>
-                    <button class="text-gray-600 hover:text-custom">사회</button>
-                    <button class="text-gray-600 hover:text-custom">문화</button>
-                    <button class="text-gray-600 hover:text-custom">스포츠</button>
-                    <button class="text-gray-600 hover:text-custom">연예</button>
-                </div>
-                <div class="ml-auto flex items-center gap-2">
-                    <span class="text-sm text-gray-500">정렬:</span>
-                    <select class="border-0 text-sm text-gray-700 focus:ring-0">
-                        <option>중요순</option>
-                        <option>최신순</option>
-                    </select>
-                </div>
+            <div>
+                <label for="sort-select"></label><select id="sort-select">
+                <option value="importance" {% if sort == 'importance' %}selected{% endif %}>중요순</option>
+                <option value="time" {% if sort == 'time' %}selected{% endif %}>최신순</option>
+            </select>
+                <button onclick="applySort()">정렬 적용</button>
             </div>
         </div>
-    </header>
-    <main class="max-w-8xl mx-auto px-4 py-8">
-        {% if news %}
-        <div class="grid grid-cols-3 gap-6">
-            {% for article in news %}
-            <article class="bg-white rounded-lg shadow-sm overflow-hidden">
-                <img src="{{article.banner_image}}" class="w-full h-48 object-cover" alt="경제 뉴스"/>
-                <div class="p-4">
-                    <div class="flex items-center gap-2 mb-2">
-                        <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="언론사" class="h-4"/>
-                        <span class="text-sm text-gray-500" data-published="{{ article.time_published }}"></span>
-                        {% for ts in article.ticker_sentiment %}
-                            <div class="flex gap-2"><span class="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded">{{ ts.ticker }}</span></div>
-                        {% endfor %}
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">{{ article.title }}</h3>
-                    <p class="text-gray-600 text-sm line-clamp-2">{{ article.summary }}</p>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-        {% endif %}
-    </main>
-    <div class="flex justify-center py-8">
-        <button class="!rounded-button bg-white border border-gray-300 text-gray-700 px-6 py-2 hover:border-custom hover:text-custom">
-            더 보기
-        </button>
     </div>
-    <footer class="bg-white border-t border-gray-200 mt-8">
-        <div class="max-w-8xl mx-auto px-4 py-8">
-            <div class="flex justify-between items-center">
-                <div>
-                    <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="로고" class="h-6 mb-4"/>
-                    <p class="text-sm text-gray-500">© 2024 뉴스 포털. All rights reserved.</p>
-                </div>
-                <div class="flex gap-6">
-                    <a href="#" class="text-gray-500 hover:text-custom">이용약관</a>
-                    <a href="#" class="text-gray-500 hover:text-custom">개인정보처리방침</a>
-                    <a href="#" class="text-gray-500 hover:text-custom">고객센터</a>
-                </div>
+</header>
+<main class="max-w-8xl mx-auto px-4 py-8">
+    <div id="news-container" class="grid grid-cols-3 gap-6">
+        {% for article in news %}
+            <article class="bg-white rounded shadow p-4">
+                <img src="{{ article.banner_image }}" alt="배너 이미지" class="w-full h-48 object-cover">
+                <h3 class="text-lg font-medium mt-2">{{ article.title }}</h3>
+                <p class="text-sm text-gray-600">{{ article.summary }}</p>
+            </article>
+        {% endfor %}
+    </div>
+    <div class="flex justify-center py-8">
+        <button id="load-more-btn" class="bg-white border border-gray-300 px-6 py-2" onclick="loadMore()">더 보기</button>
+    </div>
+</main>
+<footer class="bg-white border-t border-gray-200 mt-8">
+    <div class="max-w-8xl mx-auto px-4 py-8">
+        <div class="flex justify-between items-center">
+            <div>
+                <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="로고" class="h-6 mb-4"/>
+                <p class="text-sm text-gray-500">© 2024 뉴스 포털. All rights reserved.</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="text-gray-500 hover:text-custom">이용약관</a>
+                <a href="#" class="text-gray-500 hover:text-custom">개인정보처리방침</a>
+                <a href="#" class="text-gray-500 hover:text-custom">고객센터</a>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+</body>
+<script>
+    window.currentPage = {{ page }};
+    window.sort = "{{ sort }}";
+</script>
+<script src="{{ url_for('static', path='script.js') }}"></script>
 </html>
