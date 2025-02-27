@@ -39,6 +39,7 @@ def sort_news(news_list: List[dict], sort_by: str):
                 return datetime.strptime(item.get("time_published", ""), "%Y%m%dT%H%M%S")
             except Exception:
                 return datetime.min
+
         return sorted(news_list, key=parse_time, reverse=True)
     elif sort_by == "importance":
         return sorted(news_list, key=lambda x: x.get("importance_score", 0), reverse=True)
@@ -48,10 +49,10 @@ def sort_news(news_list: List[dict], sort_by: str):
 
 @app.get("/news", response_class=HTMLResponse)
 async def base(
-    request: Request,
-    sort: str = Query("importance", description="정렬 기준: importance 또는 time"),
-    page: int = Query(1, description="페이지 번호"),
-    page_size: int = Query(10, description="한 페이지에 보여줄 뉴스 개수")
+        request: Request,
+        sort: str = Query("importance", description="정렬 기준: importance 또는 time"),
+        page: int = Query(1, description="페이지 번호"),
+        page_size: int = Query(10, description="한 페이지에 보여줄 뉴스 개수")
 ):
     """
     HTML 페이지 렌더링 (전역 변수 데이터를 활용하여 뉴스 데이터를 정렬 및 페이징)
@@ -79,9 +80,9 @@ async def base(
 
 @app.get("/api/news", response_class=JSONResponse)
 async def api_news(
-    sort: str = Query("importance", description="정렬 기준: importance 또는 time"),
-    page: int = Query(1, description="페이지 번호"),
-    page_size: int = Query(10, description="한 페이지에 보여줄 뉴스 개수")
+        sort: str = Query("importance", description="정렬 기준: importance 또는 time"),
+        page: int = Query(1, description="페이지 번호"),
+        page_size: int = Query(10, description="한 페이지에 보여줄 뉴스 개수")
 ):
     """
     AJAX 호출용 API 엔드포인트:

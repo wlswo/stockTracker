@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime, timedelta
 
 
@@ -15,4 +16,5 @@ def get_time_range():
   time_from_str = time_from.strftime("%Y%m%dT%H%M")
   time_to_str = time_to.strftime("%Y%m%dT%H%M")
 
+  logging.log(logging.INFO, f"API 호출 범위: {time_from_str} ~ {time_to_str}")
   return time_from_str, time_to_str

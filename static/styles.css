@@ -1,0 +1,9 @@
+.neon-border-high {
+    border: 2px solid #39ff14; /* 네온 그린 */
+    box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+}
+
+.neon-border-medium {
+    border: 2px solid #39ff14;
+    box-shadow: 0 0 5px #39ff14;
+}

@@ -72,10 +72,33 @@
 <main class="max-w-8xl mx-auto px-4 py-8">
     <div id="news-container" class="grid grid-cols-3 gap-6">
         {% for article in news %}
-            <article class="bg-white rounded shadow p-4">
-                <img src="{{ article.banner_image }}" alt="배너 이미지" class="w-full h-48 object-cover">
-                <h3 class="text-lg font-medium mt-2">{{ article.title }}</h3>
+            {# importance_score 값을 소수점 한 자리까지 10을 곱한 값을 계산 #}
+            {% set score = (article.importance_score|float * 10)|round(1) %}
+            <article class="bg-white rounded shadow p-4 transition-transform duration-300 transform hover:-translate-y-1 border-2
+    {% if score < 3 %}
+      border-blue-500
+    {% elif score < 7 %}
+      border-yellow-500
+    {% else %}
+      border-red-500
+    {% endif %}">
+
+                {# 썸네일 클릭 시 article.url로 이동 (새 탭) #}
+                <a href="{{ article.url }}" target="_blank">
+                    <img src="{{ article.banner_image }}" alt="배너 이미지" class="w-full h-48 object-cover">
+                </a>
+
+                {# 제목 클릭 시 article.url로 이동 (새 탭), 하우버 시 밑줄 효과 적용 #}
+                <h3 class="text-lg font-medium mt-2">
+                    <a href="{{ article.url }}" target="_blank" class="hover:underline">{{ article.title }}</a>
+                </h3>
+
                 <p class="text-sm text-gray-600">{{ article.summary }}</p>
+
+                <div class="mt-2 flex justify-between text-xs text-gray-500">
+                    <span class="published-time" data-time="{{ article.time_published }}"></span>
+                    <span>중요도: {{ score }}점</span>
+                </div>
             </article>
         {% endfor %}
     </div>
@@ -99,9 +122,26 @@
     </div>
 </footer>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/plugin/relativeTime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/locale/ko.js"></script>
 <script>
+    // 초기 설정
     window.currentPage = {{ page }};
     window.sort = "{{ sort }}";
+    dayjs.extend(dayjs_plugin_relativeTime);
+    dayjs.locale('ko');
+
+    // 새로 추가된 카드에도 상대 시간 업데이트를 적용하는 함수
+    function updateRelativeTime() {
+        document.querySelectorAll('.published-time').forEach(function (element) {
+            const time = element.getAttribute('data-time'); // 예: "2025-02-26T20:00:00"
+            element.innerText = dayjs(time).fromNow(); // 예: "1시간 전", "3일 전"
+        });
+    }
+
+    // 초기 로드 시 실행
+    updateRelativeTime();
 </script>
 <script src="{{ url_for('static', path='script.js') }}"></script>
 </html>

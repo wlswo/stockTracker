@@ -17,29 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Day.js 및 relativeTime 플러그인 로드 후 확장
-dayjs.extend(window.dayjs_plugin_relativeTime);
-
-function updateRelativeTimes() {
-    const timeElements = document.querySelectorAll('.relative-time');
-    timeElements.forEach(function (elem) {
-        const rawDate = elem.getAttribute('data-published'); // 예: "20250221T160000"
-        // "20250221T160000" 형식을 "2025-02-21 16:00:00"로 변환
-        const formattedDate = rawDate.slice(0, 4) + '-' +
-            rawDate.slice(4, 6) + '-' +
-            rawDate.slice(6, 8) + ' ' +
-            rawDate.slice(9, 11) + ':' +
-            rawDate.slice(11, 13) + ':' +
-            rawDate.slice(13, 15);
-        // dayjs로 상대 시간 계산 후 표시 (페이지 로드 시 1회만 계산)
-        elem.textContent = dayjs(formattedDate, "YYYY-MM-DD HH:mm:ss").fromNow();
-    });
-}
-
-// 페이지 로드 시 단 한 번 실행
-updateRelativeTimes();
-
-// script.js
 
 // 전역 변수에서 값을 가져오거나 기본값을 설정합니다.
 let currentPage = window.currentPage || 1;
@@ -52,33 +29,34 @@ function applySort() {
     window.location.href = `/news?sort=${selectedSort}&page=1&page_size=${pageSize}`;
 }
 
-async function loadMore() {
-    currentPage++;
-    try {
-        const response = await axios.get('/api/news', {
-            params: {
-                sort: sort,
-                page: currentPage,
-                page_size: pageSize
-            }
-        });
-        const newsList = response.data.news;
-        const container = document.getElementById("news-container");
-        newsList.forEach(article => {
-            const articleElem = document.createElement("article");
-            articleElem.className = "bg-white rounded shadow p-4";
-            articleElem.innerHTML = `
-                <img src="${article.banner_image}" alt="배너 이미지" class="w-full h-48 object-cover">
-                <h3 class="text-lg font-medium mt-2">${article.title}</h3>
-                <p class="text-sm text-gray-600">${article.summary}</p>
-            `;
-            container.appendChild(articleElem);
-        });
-        // 만약 추가 데이터가 없으면 "더 보기" 버튼 숨김 처리
-        if (newsList.length < pageSize) {
-            document.getElementById("load-more-btn").style.display = 'none';
-        }
-    } catch (error) {
-        console.error("데이터 로드 실패:", error);
-    }
+// 예시: AJAX 응답 후 새 카드 생성
+function loadMore() {
+    fetch('/api/news?page=' + (window.currentPage + 1) + '&sort=' + window.sort)
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('news-container');
+            data.news.forEach(article => {
+                const articleElement = document.createElement('article');
+                articleElement.className = "bg-white rounded shadow p-4 transition-transform duration-300 transform hover:-translate-y-1 border-2";
+                // 중요도 계산 등 추가 처리 (생략)
+                articleElement.innerHTML = `
+                  <a href="${article.url}" target="_blank">
+                    <img src="${article.banner_image}" alt="배너 이미지" class="w-full h-48 object-cover">
+                  </a>
+                  <h3 class="text-lg font-medium mt-2">
+                    <a href="${article.url}" target="_blank" class="hover:underline">${article.title}</a>
+                  </h3>
+                  <p class="text-sm text-gray-600">${article.summary}</p>
+                  <div class="mt-2 flex justify-between text-xs text-gray-500">
+                      <span class="published-time" data-time="${article.time_published}"></span>
+                      <span>중요도: ${(article.importance_score * 10).toFixed(1)}점</span>
+                  </div>
+                `;
+                container.appendChild(articleElement);
+            });
+            // 동적으로 추가된 요소에 대해 dayjs 상대 시간 업데이트 실행
+            updateRelativeTime();
+            window.currentPage++;
+        })
+        .catch(err => console.error(err));
 }

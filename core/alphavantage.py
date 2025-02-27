@@ -1,6 +1,6 @@
 import requests
 from dotenv import load_dotenv
-
+from datetime import datetime
 from data.data_store import news_data, top20_gainers_losers
 from core.utils import get_time_range
 
@@ -31,7 +31,6 @@ def get_news():
 
   # 카테고리를 2개씩 묶어서 API 호출
   for i in range(0, len(topics), 2):
-    # 만약 마지막 항목이 홀수라면 단일 요소로 사용
     pair = topics[i:i + 2]
     topics_param = ",".join(pair)
     print(f'API 호출 중: {topics_param}')
@@ -56,19 +55,26 @@ def get_news():
     else:
       print(f"유효한 feed 데이터가 없음 (topics: {topics_param})")
 
-  # 최종 JSON 데이터 구조 생성
+  # 날짜 문자열을 ISO 8601 형식으로 변환 (dayjs가 기본적으로 인식)
+  for article in combined_feed:
+    if "time_published" in article:
+      try:
+        dt = datetime.strptime(article["time_published"], "%Y%m%dT%H%M%S")
+        # ISO 형식: "YYYY-MM-DDTHH:MM:SS"
+        article["time_published"] = dt.isoformat()
+      except Exception as e:
+        print(f"날짜 변환 오류: {article['time_published']} / {e}")
+
   final_data = {
     "items": str(len(combined_feed)),
     "feed": combined_feed
   }
 
-  # 파일 저장: 현재 파일(__file__) 기준으로 core 폴더 내에 news_data.json 생성
+  # 파일 저장: 현재 __file__의 위치는 core 폴더 내부에 있으므로, 상위 폴더로 이동한 후 data 폴더 지정
   try:
-    # 현재 __file__의 위치는 core 폴더 내부에 있으므로, 상위 폴더로 이동한 후 data 폴더를 지정
     base_dir = os.path.dirname(os.path.abspath(__file__))
     parent_dir = os.path.dirname(base_dir)
     file_path = os.path.join(parent_dir, "data", "news_data.json")
-
     with open(file_path, "w", encoding="utf-8") as file:
       json.dump(final_data, file, ensure_ascii=False, indent=4)
     print(f"뉴스 데이터 파일 생성 완료: {file_path}")
@@ -78,6 +84,7 @@ def get_news():
   # 전역 변수 업데이트 (news_data는 feed 리스트만 저장)
   news_data.clear()
   news_data.extend(combined_feed)
+
 
 #  get top 20 Gainers, Losers
 def get_top_20_gainers_losers():
